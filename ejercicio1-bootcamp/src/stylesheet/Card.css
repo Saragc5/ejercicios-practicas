@@ -1,0 +1,43 @@
+.card-body{
+  width:90vh;
+  height: 80vh;
+  padding: 25px; 
+  background-color: aliceblue;
+  border-radius: 30px; 
+  display:flex;
+  flex-wrap: wrap;
+  /* align-items: center;
+  justify-content: center; */
+
+}
+.imagen-card{
+  width: 100%;
+  height:50%;
+  border: 2px solid grey;
+
+}
+.title{
+  /* background-color: brown; */
+  flex-direction: row;
+  align-self: left;
+  
+}
+
+p{
+  
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+} 
+
+button{
+  min-width: 2px;
+  min-height: 2px;
+  display:flex;
+  flex-wrap:wrap;
+  align-self:left; 
+  background-color: #4ec0d4;
+  color:white;
+  text-decoration: bold;
+
+} 
