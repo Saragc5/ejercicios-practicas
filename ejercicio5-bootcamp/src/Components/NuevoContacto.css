@@ -1,0 +1,9 @@
+.form-group{
+  display: grid;
+  place-items: center;
+}
+.row{
+  display: flex;
+  
+  
+}

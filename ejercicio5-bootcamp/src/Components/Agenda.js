@@ -1,4 +1,5 @@
 import React from 'react'
+import './NuevoContacto.css'
 
 export default function Agenda({ contacts }) {
   return (

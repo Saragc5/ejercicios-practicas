@@ -6,7 +6,7 @@ import Card from "../Components/Card";
 
 function Ejercicio1Pages() {
   return (
-    <div className="App">
+    <div className="card-page">
       <Card 
         imagen= "imagen-card"
         title="Card title"

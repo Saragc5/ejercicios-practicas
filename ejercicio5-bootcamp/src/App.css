@@ -1,1 +1,18 @@
-
+body{
+ margin-right: 10%;
+ margin-left: 10%;
+ background-color: aqua;
+}
+.App{
+  background-color: antiquewhite;
+  max-width: 80%;
+  display: grid;
+  
+  place-items: center;
+  
+}
+.contendor{
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+}

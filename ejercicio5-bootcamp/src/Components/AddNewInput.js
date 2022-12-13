@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 
+
 export default function AddNewInput({setTodos}){
   const [newTodo, setNewTodo] = useState("");
 
@@ -14,7 +15,7 @@ export default function AddNewInput({setTodos}){
   const handleNewTodo = (evento)=> setNewTodo(evento.target.value);
 
   return(
-      <form onSubmit={handleSubmit} className="form-group container">
+      <form onSubmit={handleSubmit} className="form-group-container">
           <h1 className="my-4">Todo List</h1>
           <input
               className="form-control mb-3"

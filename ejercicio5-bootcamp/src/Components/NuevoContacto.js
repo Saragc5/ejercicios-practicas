@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState} from 'react';
+import './NuevoContacto.css'
 
 export default function NuevoContacto({ setContacts}) {
   //Creación de los estados:

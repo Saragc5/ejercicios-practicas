@@ -16,7 +16,7 @@ function Ejercicio4Pages() {
 
   
   return (
-    <div className="App">
+    <div className="listaToDo">
     <h2>Lista de tareas</h2>
     <AddNewInput setToDoPropiedadComponente = {setToDo}/>
     <ListaToDo toDoPropiedadComponente={toDoTarea} setToDoPropiedadComponente = {setToDo}/>
