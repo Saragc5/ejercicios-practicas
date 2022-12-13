@@ -5,24 +5,22 @@ import ListaToDo from '../Components/ListaToDo';
 
 function Ejercicio4Pages() {
    //creo el estado: este ejercicio no lleva array con cosas iniciales
-  const [toDoTarea, setToDo] = useState([]);
+   const [todos, setTodos] = useState([]);
 
    //hacer fetch con useEffect:
+ 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos") 
+    fetch("https://jsonplaceholder.typicode.com/todos")
       .then(response => response.json())
-      .then(data =>setToDo(data.slice(0,20))); //data.slice dice que coja de data solo los 20 primeros)
-  }, []);
+      .then(data => setTodos(data.splice(0,20)));//data.slice dice que coja de data solo los 20 primeros)
+  }, [])
 
   
   return (
     <div className="listaToDo">
-    <h2>Lista de tareas</h2>
-    <AddNewInput setToDoPropiedadComponente = {setToDo}/>
-    <ListaToDo toDoPropiedadComponente={toDoTarea} setToDoPropiedadComponente = {setToDo}/>
-    
-  
-  </div>
+      <AddNewInput setTodos={setTodos}/>
+      <ListaToDo setTodos={setTodos} todos={todos}/>
+    </div>
   );
 }
 
