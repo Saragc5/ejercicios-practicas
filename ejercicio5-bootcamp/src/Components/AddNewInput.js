@@ -1,26 +1,28 @@
 import React, { useState} from 'react'
 
-export default function AddNewInput({ setToDoPropiedadComponente }) {
+export default function AddNewInput({setTodos}){
+  const [newTodo, setNewTodo] = useState("");
 
-  const [newInput, setNewInput] = useState ("") ;
+  const handleSubmit = (event)=>{
+      event.preventDefault();
+      
+      setTodos(todos => [{title: newTodo, completed: false}, ...todos]);
 
-  function handleSubmit(e){
-    e.preventDefault();
-
-    setToDoPropiedadComponente(currentToDos =>[{title: newInput, completed: false},...currentToDos]); //esto es para añadir la nueva tarea al principio de la lista
-    
-    setNewInput("");
+      setNewTodo("");
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="my-4 mx-4">
-      <input  type="text" 
-              placeholder="nueva tarea" 
-              className="form-control"
-              onChange={e => setNewInput(e.target.value)}
-              value={newInput}
-              />
-      <button>Submit</button>
-    </form>
+  const handleNewTodo = (evento)=> setNewTodo(evento.target.value);
+
+  return(
+      <form onSubmit={handleSubmit} className="form-group container">
+          <h1 className="my-4">Todo List</h1>
+          <input
+              className="form-control mb-3"
+              type="text"
+              value={newTodo}
+              placeholder="Introduce un nuevo To-do"
+              onChange={handleNewTodo}
+          />
+      </form>
   )
 }

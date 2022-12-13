@@ -1,6 +1,6 @@
 import React from "react";
 // import 'bootstrap/dist/css/bootstrap.css';
-import "../stylesheet/Card.css";
+import "./Card.css";
 
 
 function  Card (props) {

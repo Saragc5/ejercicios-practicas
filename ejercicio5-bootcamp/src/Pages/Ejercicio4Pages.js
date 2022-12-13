@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import { useState, useEffect } from 'react';
 import AddNewInput from '../Components/AddNewInput';
 import ListaToDo from '../Components/ListaToDo';
@@ -26,4 +26,4 @@ function Ejercicio4Pages() {
   );
 }
 
-export default App;
+export default Ejercicio4Pages;

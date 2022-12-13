@@ -1,67 +1,35 @@
 import React from 'react';
-import "../stylesheet/ListaToDo.css";
+import "./ListaToDo.css";
 
-export default function ListaToDo({ toDoPropiedadComponente, setToDoPropiedadComponente }) {
+export default function ListaToDo ({todos, setTodos}) {
   
-  //eliminar el elemento de la lista:
-  //(lo dejo comentado porque no me funciona el eliminar y necesito este ejercicio para el ej.5)
-  // const eliminarTarea = (title) => {
-  //   const tareasActualizadas = toDoPropiedadComponente.filter(toDoPropiedadComponente =>
-  //     toDoPropiedadComponente.title !== title);
-  //   setToDoPropiedadComponente(tareasActualizadas);
-  //   };
+  const removeTodo  = (title) => {
+      setTodos(todos.filter(todo => todo.title !== title));
+  };
 
-       // const eliminarTarea = (title) => {
-  //   const tareasActualizadas = toDoPropiedadComponente.filter(toDoPropiedadComponente =>
-  //toDoPropiedadComponente.title !== title);
-  //   setTareas(tareasActualizadas);
-  //}
-  
-  
-  //hago la funcion toggle que va a tachar el elemento de la lista:
-  const toggleCompleted = (e, index) => {
-      const newToDo = [...toDoPropiedadComponente];
-      newToDo[index].completed = !newToDo[index].completed;
-      setToDoPropiedadComponente(newToDo);
-  }
-
-  //Una alternativa:
-  //const toggleCompleted = (e, index) => {
-  //  if(e.target.tagName !== "BUTTON"){
-    //const newToDo = [...toDoPropiedadComponente];
-    //newToDo(index).completed = !newToDo[index].completed;
-    //setToDoPropiedadComponente(newToDo);
-    //}
-  //}
-
-  //Otr alternativa, más complicada:
-  // setToDo(currentToDo => currentToDo.map((toDoTarea, index) => {
-  //   return idx === index ? {...toDoTarea, completed: !toDoTarea.completed} : toDoTarea;
-  // }))
-
-
-  
- 
-
-// const eliminarTarea = (id) => {
-//   const tareasActualizadas = tareas.filter(tarea =>tarea.id !== id);
-//   setTareas(tareasActualizadas);
-// }
+  const toggleTodo = (index) => {
+      const newTodos = [...todos];
+      newTodos[index].completed = !newTodos[index].completed;
+      setTodos(newTodos);
+  };
 
   return (
-    <ul className="list-group-container">
-    {toDoPropiedadComponente.map((list, index) => {   
-  
-      return (
-      <li className={`list-group-item d-flex justify-content-between ${list.completed ? "completed" : "" }`}    //esto es para que si pincho la tarea me la tache y debe estar antes que el toggle de abajo porque si no, no me lo usa
-          onClick={e => toggleCompleted (e, index)}>
-          Tarea  {index} : {list.title}
-          {/* <button className="btn btn-danger" onClick={() => eliminarTarea(list.title)}>X</button> */}
-      </li>
-      )
-    })};
-     
-   
+    <ul className="list-group container">
+        
+        {todos.map(({title, completed}, index) => {
+            return (
+                <li key={title} className={`list-group-item ${completed && "completed"}`}>
+                    <div className="row">
+                        <div className="col-11" onClick={() => toggleTodo(index)}>
+                            <span className={completed ? "completed" : ""}>To-Do {index}: <strong>{title}</strong></span>
+                        </div>
+                        <div className="col-1">
+                            <button className="btn btn-danger" onClick={() => removeTodo(title)}>X</button>
+                        </div>
+                    </div>
+                </li>
+            )
+        })}
     </ul>
-  )
-}
+  );
+};
