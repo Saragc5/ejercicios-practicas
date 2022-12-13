@@ -3,19 +3,19 @@ import "../stylesheet/ListaToDo.css";
 
 export default function ListaToDo({ toDoPropiedadComponente, setToDoPropiedadComponente }) {
   
-  //eliminar el elemento de la lista:
-  //(lo dejo comentado porque no me funciona el eliminar y necesito este ejercicio para el ej.5)
-  // const eliminarTarea = (title) => {
-  //   const tareasActualizadas = toDoPropiedadComponente.filter(toDoPropiedadComponente =>
-  //     toDoPropiedadComponente.title !== title);
-  //   setToDoPropiedadComponente(tareasActualizadas);
-  //   };
+  // eliminar el elemento de la lista:
+  // (lo dejo comentado porque no me funciona el eliminar y necesito este ejercicio para el ej.5)
+  const eliminarTarea = (title) => {
+    const tareasActualizadas = toDoPropiedadComponente.filter(toDoPropiedadComponente =>
+      toDoPropiedadComponente.title !== title);
+    setToDoPropiedadComponente(tareasActualizadas);
+    };
 
-       // const eliminarTarea = (title) => {
+  //      const eliminarTarea = (title) => {
   //   const tareasActualizadas = toDoPropiedadComponente.filter(toDoPropiedadComponente =>
-  //toDoPropiedadComponente.title !== title);
+  // toDoPropiedadComponente.title !== title);
   //   setTareas(tareasActualizadas);
-  //}
+  // }
   
   
   //hago la funcion toggle que va a tachar el elemento de la lista:
@@ -25,16 +25,16 @@ export default function ListaToDo({ toDoPropiedadComponente, setToDoPropiedadCom
       setToDoPropiedadComponente(newToDo);
   }
 
-  //Una alternativa:
-  //const toggleCompleted = (e, index) => {
+  // Una alternativa:
+  // const toggleCompleted = (e, index) => {
   //  if(e.target.tagName !== "BUTTON"){
-    //const newToDo = [...toDoPropiedadComponente];
-    //newToDo(index).completed = !newToDo[index].completed;
-    //setToDoPropiedadComponente(newToDo);
-    //}
-  //}
+  //   const newToDo = [...toDoPropiedadComponente];
+  //   newToDo(index).completed = !newToDo[index].completed;
+  //   setToDoPropiedadComponente(newToDo);
+  //   }
+  // }
 
-  //Otr alternativa, más complicada:
+  // Otr alternativa, más complicada:
   // setToDo(currentToDo => currentToDo.map((toDoTarea, index) => {
   //   return idx === index ? {...toDoTarea, completed: !toDoTarea.completed} : toDoTarea;
   // }))
@@ -50,7 +50,8 @@ export default function ListaToDo({ toDoPropiedadComponente, setToDoPropiedadCom
 
   return (
     <ul className="list-group-container">
-    {toDoPropiedadComponente.map((list, index) => {   
+    {
+      toDoPropiedadComponente.map((list, index) => {   
   
       return (
       <li className={`list-group-item d-flex justify-content-between ${list.completed ? "completed" : "" }`}    //esto es para que si pincho la tarea me la tache y debe estar antes que el toggle de abajo porque si no, no me lo usa
@@ -64,4 +65,5 @@ export default function ListaToDo({ toDoPropiedadComponente, setToDoPropiedadCom
    
     </ul>
   )
+
 }
