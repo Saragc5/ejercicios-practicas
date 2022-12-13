@@ -1,4 +1,5 @@
 import React from 'react';
+import Lista from './Lista'
 
 export default function Tienda (){
 
@@ -20,5 +21,11 @@ export default function Tienda (){
     ]
   };
 
-  
+  return(
+        <div>
+            <Lista categoria="Electrónica" productos={tienda.electronics} /> 
+            <Lista categoria="Alimentación" productos={tienda.groceries} />
+            <Lista categoria="Mascotas" productos={tienda.pets} />
+       </div>
+  );
 }
